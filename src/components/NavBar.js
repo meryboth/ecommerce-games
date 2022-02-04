@@ -1,4 +1,5 @@
 import React from 'react';
+import CartWidget from './CartWidget';
 
 function NavBar() {
 
@@ -33,10 +34,7 @@ function NavBar() {
       <input type="search" className='rounded-full px-4 py-2' placeholder='The game you want...' name='game'/>
       <button className='bg-white hover:bg-green-700 text-black hover:text-white mx-1 font-bold py-2 px-4 rounded-full'>Log In</button>
       <button className='bg-white hover:bg-green-700 text-black hover:text-white font-bold py-2 px-4 mx-1 rounded-full'>Register</button>
-        <span className='text-slate-700 mx-2'>
-          <small>0</small>
-        </span>
-        <img src="https://icongr.am/jam/shopping-cart.svg?size=30&color=00806a" alt="" className='my-2'/>
+      <CartWidget />
       </div>
   </header>;
 }
