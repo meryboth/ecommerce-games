@@ -1,5 +1,6 @@
 import React from 'react';
 import "./Item.css";
+import Counter from './Counter';
 
 function Item() {
   return <div>
@@ -13,13 +14,8 @@ function Item() {
                         "Out of time"
                     </div>
                     <span className="text-5xl text-grey-darkest">35<span class="text-lg">US</span></span>
-                    <div className="flex items-center mt-4">
-                        <div className="pr-2 text-xs">
-                            <i className="fas fa-asterisk"></i> Digital
-                        </div>
-                        <div className="px-2 text-xs">
-                            <i className="text-grey-darker fas fa-award"></i> Full version
-                        </div>
+                    <div className="flex items-center mt-1">
+                    <Counter initial={1} stock={7} />
                     </div>
                 </div>
                 <div className="bg-slate-300 p-3 flex items-center justify-between transition hover:bg-slate-100">
