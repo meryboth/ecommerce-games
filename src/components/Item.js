@@ -3,8 +3,9 @@ import "./Item.css";
 import Counter from './Counter';
 
 function Item() {
+
 function onAdd(){
-    console.log("add");
+    return alert("Item added to cart");
 }
 
   return <div>
@@ -17,14 +18,8 @@ function onAdd(){
                         <i className="fas fa-angle-right mr-1 text-grey-dark"></i>
                         "Out of time"
                     </div>
-                    <span className="text-5xl text-grey-darkest">35<span class="text-lg">US</span></span>
-                    <div className="flex items-center mt-1">
+                    <span className="text-5xl text-grey-darkest">35<span className="text-lg">US</span></span>
                     <Counter initial={1} stock={7} onAdd={onAdd} />
-                    </div>
-                </div>
-                <div className="bg-slate-300 p-3 flex items-center justify-between transition hover:bg-slate-100">
-                    Buy now
-                    <i className="fas fa-chevron-right"></i>
                 </div>
             </div>
         </div>
