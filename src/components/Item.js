@@ -3,6 +3,10 @@ import "./Item.css";
 import Counter from './Counter';
 
 function Item() {
+function onAdd(){
+    console.log("add");
+}
+
   return <div>
       <div id="app" className="bg-white w-128 h-60 rounded shadow-md flex card text-grey-darkest">
             <img className="w-1/2 h-full rounded-l-sm" src="https://image.api.playstation.com/vulcan/img/rnd/202111/1918/psoOkDbYuMdr1RsJo6TpU6bg.png" alt="Room Image"/>
@@ -15,7 +19,7 @@ function Item() {
                     </div>
                     <span className="text-5xl text-grey-darkest">35<span class="text-lg">US</span></span>
                     <div className="flex items-center mt-1">
-                    <Counter initial={1} stock={7} />
+                    <Counter initial={1} stock={7} onAdd={onAdd} />
                     </div>
                 </div>
                 <div className="bg-slate-300 p-3 flex items-center justify-between transition hover:bg-slate-100">
