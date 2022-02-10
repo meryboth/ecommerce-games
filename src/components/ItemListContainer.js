@@ -1,9 +1,11 @@
 import React from 'react';
-import Item from './Item';
+import ItemList from './ItemList';
+import "./ItemListContainer.css";
 
 function ItemListContainer() {
-  return <div className='flex justify-center items-center h-screen'>
-    <Item />
+
+  return <div className='container'>
+    <ItemList/>
   </div>;
 }
 

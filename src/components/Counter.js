@@ -15,7 +15,7 @@ function Counter(props) {
     }
   }
 
-  const condicionAddOn = count < props.stock && count > props.initial;
+  const condicionAddOn = count <= props.stock && count >= props.initial;
   const onAddCondicion = condicionAddOn ? props.onAdd : null;
 
 
