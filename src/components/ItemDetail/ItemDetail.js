@@ -12,12 +12,12 @@ function ItemDetail(props) {
                  {props.description}
                 </p>
                 <h4 className='font-regular text-3xl mb-3 mt-3 text-slate-500'>
-                    Price: {props.price}
+                    Price: {props.price}US
                 </h4>
-                <h6>
+                <h6 className='text-slate-500'>
                     Plataforms: {props.plataforms}
                 </h6>
-                <h6>
+                <h6 className='text-slate-500'>
                     Mode: {props.mode}
                 </h6>
             </div>

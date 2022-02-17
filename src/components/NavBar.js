@@ -1,20 +1,22 @@
 import React from 'react';
 import CartWidget from './CartWidget';
+import { Link } from 'react-router-dom';
 
 function NavBar() {
 
   let Links = [
-    {name: "Store", link: "/store"},
     {name: "Sale", link: "/sale"},
     {name: "Free games", link: "/freegames"}
   ];
 
   return <header className='header flex py-3 justify-evenly bg-slate-100 items-center px-5 shadow-md'>
       <div className='header__logo'>
-        <a href="/" className='flex items-center'>
-          <img src="https://icongr.am/jam/bug.svg?size=30&color=00806a" alt="" />
-          <h1 className='font-bold mx-3'>Bug Games</h1>
-        </a>
+        <Link to={'/'}>
+          <a className='flex items-center'>
+            <img src="https://icongr.am/jam/bug.svg?size=30&color=00806a" alt="" />
+            <h1 className='font-bold mx-3'>Bug Games</h1>
+          </a>
+        </Link>
       </div>
       <div className='text-3xl absolute right-8 top-6 cursor-pointer md:hidden'>
         <img src="https://icongr.am/jam/align-justify.svg?size=30&color=00806a" alt="" />
