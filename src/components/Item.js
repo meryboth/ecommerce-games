@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Item.css";
 import Counter from './Counter';
+import { Link } from 'react-router-dom';
 
 function Item(props) {
 
@@ -10,7 +11,9 @@ function onAdd(){
 
   return <div>
       <div id="app" className="bg-white w-128 h-60 rounded shadow-md flex card text-grey-darkest m-3">
-            <img className="w-1/2 h-full rounded-l-sm overflow-hidden object-cover" src={props.img} alt="Room Image"/>
+            <Link to={`/detail/${props.id}`} className='w-1/2'>
+                <img className="h-full rounded-l-sm overflow-hidden object-cover" src={props.img} alt="Room Image"/>
+            </Link>
             <div className="w-full flex flex-col">
                 <div className="p-4 pb-0 flex-1">
                     <h3 className="font-regular mb-1 text-grey-darkest">{props.name}</h3>

@@ -28,7 +28,7 @@ export const products = [
         name: 'The last of us',
         version: '',
         price: 35,
-        img: "https://m.media-amazon.com/images/I/71-hlREKk6L._AC_SY741_.jpg",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWLl2KDY2BO65S2rTpGZmAG9giDAQzbV1idq6KsVy4tmKCgNTtNpN4cGqQdjFimj67DOk&usqp=CAU",
         category: 'Horror',
         description: 'Set in the post-apocalyptic United States, the game tells the story of survivors Joel and Ellie as they work together to survive their westward journey across what remains of the country to find a possible cure for the modern fungal plague that has nearly decimated the entire human race.',
         plataforms: ['PS3', 'PS4', 'PS5'],
@@ -79,10 +79,11 @@ export const getProducts = () => {
     })
 }
 
-export const getProductItem = () => {
-    return new Promise((resolve, reject) => {
+export const getProductItem = (id) => {
+    return new Promise((resolve) => {
+        const prod = products.find(p => p.id === parseInt(id))
         setTimeout(() => {
-            resolve(products[0]);
-        }, 1000);
+            resolve(prod)
+        }, 1000)
     })
 }

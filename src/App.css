@@ -1,3 +1,8 @@
 * {
     font-family: 'Inter', sans-serif;
 }
+
+.appContainer{
+    height: 70vh;
+    background-color: green;
+}

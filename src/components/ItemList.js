@@ -16,6 +16,7 @@ function ItemList() {
     <div className='flex flex-wrap justify-center'>
         {products.map (product => <Item 
         key={product.id} 
+        id={product.id}
         img={product.img} 
         name={product.name}
         price={product.price}

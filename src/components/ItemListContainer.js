@@ -7,7 +7,6 @@ function ItemListContainer() {
 
   return <div className='container m-auto'>
     <ItemList/>
-    <IdemDetailContainer/>
   </div>;
 }
 

@@ -13,14 +13,14 @@ import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 
 export default function App() {
   return (
-    <BrowserRouter>
-    <div className='bg-slate-200'>
+    <BrowserRouter className=''>
+    <div className='bg-slate-200 h-screen justify-between flex flex-col'>
       <NavBar />
       <Routes>
       <Route path="/" element={<ItemListContainer />} />
       <Route path="/freegames" element={<FreeGames />} />
       <Route path="/sale" element={<Sale />} />
-      <Route path="/detail" element={<ItemDetailContainer />} />
+      <Route path='/detail/:productId' element={<ItemDetailContainer />}/>
       </Routes>
       <Footer/>
     </div>
