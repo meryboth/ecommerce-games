@@ -10,6 +10,7 @@ export const products = [
         plataforms: ['PS4', 'Xbox One', 'PS5', 'Xbox Series X/S', 'Nintendo Switch', 'PC'],
         publisher: 'Activision',
         mode: ['Single-player', 'Local: Multiplayer'],
+        stock: 7,
     },
     {
         id: 2,
@@ -22,6 +23,7 @@ export const products = [
         plataforms: ['PS4', 'Microsoft Windows', 'PS5'],
         publisher: 'Sony Computer Entertainment',
         mode: ['Single-player', 'Local: Multiplayer'],
+        stock: 7,
     },
     {
         id: 3,
@@ -34,6 +36,7 @@ export const products = [
         plataforms: ['PS3', 'PS4', 'PS5'],
         publisher: 'Sony Computer Entertainment',
         mode: ['Single-player'],
+        stock: 7,
     },
     {   id: 4,
         name: 'Horizon',
@@ -45,6 +48,7 @@ export const products = [
         plataforms: ['PS4', 'PS5', 'Microsoft Windows'],
         publisher: 'Sony Computer Entertainment',
         mode: ['Single-player'],
+        stock: 7,
     },
     {   id: 5,
         name: 'God of war',
@@ -56,6 +60,7 @@ export const products = [
         plataforms: ['PS4', 'PS5', 'Microsoft Windows'],
         publisher: 'Sony Computer Entertainment',
         mode: ['Single-player'],
+        stock: 7,
     },
     {   id: 6,
         name: 'Tomb Rider',
@@ -67,6 +72,7 @@ export const products = [
         plataforms: ['Xbox One', 'Xbox 360', 'PC', 'PS4', 'macOS', 'Google Stadia' ],
         publisher: 'Microsoft Studios',
         mode: ['Single-player'],
+        stock: 7,
     },
 
 ];

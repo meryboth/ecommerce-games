@@ -1,7 +1,6 @@
 import React from 'react';
 import ItemList from './ItemList';
 import "./ItemListContainer.css";
-import IdemDetailContainer from './ItemDetail/ItemDetailContainer';
 
 function ItemListContainer() {
 

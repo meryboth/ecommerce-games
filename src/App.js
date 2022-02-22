@@ -1,6 +1,6 @@
 import './App.css';
-import NavBar from './components/NavBar';
-import ItemListContainer from './components/ItemListContainer';
+import NavBar from './components/NavBar/NavBar';
+import ItemListContainer from './components/Item/ItemListContainer';
 import Footer from './components/Footer/Footer';
 import {
   BrowserRouter,

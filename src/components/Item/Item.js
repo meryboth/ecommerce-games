@@ -1,13 +1,8 @@
 import React from 'react';
 import "./Item.css";
-import Counter from './Counter';
 import { Link } from 'react-router-dom';
 
 function Item(props) {
-
-function onAdd(){
-    return alert("Item added to cart");
-}
 
   return <div>
       <div id="app" className="bg-white w-128 h-60 rounded shadow-md flex card text-grey-darkest m-3">
@@ -22,7 +17,6 @@ function onAdd(){
                         {props.version}
                     </div>
                     <span className="text-5xl text-grey-darkest">{props.price}<span className="text-lg">US</span></span>
-                    <Counter initial={1} stock={7} onAdd={onAdd} />
                 </div>
             </div>
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import Item from './Item';
-import { getProducts } from './asyncmock';
+import { getProducts } from '../asyncmock';
 import "./ItemList.css";
 
 function ItemList() {
