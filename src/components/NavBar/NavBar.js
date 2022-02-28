@@ -12,10 +12,10 @@ function NavBar() {
   return <header className='header flex py-3 justify-evenly bg-slate-100 items-center px-5 shadow-md'>
       <div className='header__logo'>
         <Link to={'/'}>
-          <a className='flex items-center'>
+          <div className='flex items-center'>
             <img src="https://icongr.am/jam/bug.svg?size=30&color=00806a" alt="" />
             <h1 className='font-bold mx-3'>Bug Games</h1>
-          </a>
+          </div>
         </Link>
       </div>
       <div className='text-3xl absolute right-8 top-6 cursor-pointer md:hidden'>

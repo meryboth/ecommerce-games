@@ -35,7 +35,7 @@ function Counter(props) {
           </div>
     </div>
     <div className="bg-slate-300 p-3 flex items-center justify-between transition hover:bg-slate-100 my-1"
-    onClick={onAddCondicion}>
+    onClick={() => props.onAdd(count)}>
       Buy now
       <i className="fas fa-chevron-right"></i>
     </div>
