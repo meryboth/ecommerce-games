@@ -1,44 +1,36 @@
 import React from 'react';
 import { useState } from 'react';
 
-function Counter(props) {
- const [count, setCount] = useState(props.initial);
+function Counter({stock, onAdd}) {
+ const [number, setNumber] = useState(0);
+  
+  const add = () =>{
+  number < stock && setNumber(number + 1);
+  };
 
-  function handleIncrement() {
-    if (count < props.stock) {
-      setCount(count + 1);
-    }
-  }  
-
-  function handleDecrement(){
-    if(count > props.initial){
-      setCount(count - 1);
-    }
-  }
-
-  const condicionAddOn = count <= props.stock && count >= props.initial;
-  const onAddCondicion = condicionAddOn ? props.onAdd : null;
-
+  const decrece = () =>{
+    number > 0 && setNumber(number - 1);
+  };
 
   return <div className='w-full flex flex-col'>
     <div className="flex items-center mt-4">
-        <div className="px-2 text-xs bg-slate-200" onClick={handleDecrement}>
-            {/* <i className="text-grey-darker fas fa-minus"></i> */}
-            -
+        <div className="px-2 text-xs bg-slate-200" onClick={decrece}>
+            <i className="text-grey-darker fas fa-minus"></i>
         </div>
           <div className="px-2 text-xs">
-            {count}
+            {number}
           </div>
-          <div className="px-2 text-xs bg-slate-200" onClick={handleIncrement}>
-            + 
-              {/* <i className="text-grey-darker fas fa-plus"></i> */}
+          <div className="px-2 text-xs bg-slate-200" onClick={add}>
+              <i className="text-grey-darker fas fa-plus"></i>
           </div>
     </div>
-    <div className="bg-slate-300 p-3 flex items-center justify-between transition hover:bg-slate-100 my-1"
-    onClick={() => props.onAdd(count)}>
+    <button className="bg-slate-300 p-3 flex items-center justify-between transition hover:bg-slate-100 my-1"
+    onClick={() => onAdd(number)}
+    disabled={number === 0 || number > stock}
+    >
       Buy now
       <i className="fas fa-chevron-right"></i>
-    </div>
+    </button>
   </div>;
 }
 

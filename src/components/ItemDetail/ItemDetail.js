@@ -7,16 +7,14 @@ import { CartContext } from '../../context/CartContext';
 
 
 function ItemDetail({ product }) {
-    const [showCounter, setShowCounter] = React.useState(true);
-    const [quantity, setQuantity] = useState(0)
+    const [qty, setQty] = useState(0);
 
     const { addToCart } = useContext(CartContext);
 
 
-    function onAdd(quantity){
-        setShowCounter(!showCounter);
-        setQuantity(quantity);
-        addToCart( product );
+    function onAdd(cantidad){
+        setQty(cantidad);
+        addToCart( product, cantidad);
     }
 
   return (
@@ -37,7 +35,7 @@ function ItemDetail({ product }) {
                 <h6 className='text-slate-500'>
                     Mode: {product?.mode}
                 </h6>
-                {showCounter ? (<Counter initial={quantity} stock={product?.stock} onAdd={onAdd} />)
+                {qty === 0 ? (<Counter stock={product?.stock} onAdd={onAdd} />)
                 : 
                 (<div className='mt-3'>
                     <Link to={"/"}><button className='btn bg-slate-200 py-2 px-5 rounded'>Keep buying</button></Link>
