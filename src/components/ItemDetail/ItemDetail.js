@@ -38,8 +38,8 @@ function ItemDetail({ product }) {
                 {qty === 0 ? (<Counter stock={product?.stock} onAdd={onAdd} />)
                 : 
                 (<div className='mt-3'>
-                    <Link to={"/"}><button className='btn bg-slate-200 py-2 px-5 rounded'>Keep buying</button></Link>
-                    <Link to={"/cart"}><button className='btn bg-slate-200 py-2 px-5 rounded mx-1'>My shop bag</button></Link>
+                    <Link to="/"><button className='btn bg-slate-200 py-2 px-5 rounded'>Keep buying</button></Link>
+                    <Link to="/cart"><button className='btn bg-slate-200 py-2 px-5 rounded mx-1'>My shop bag</button></Link>
                 </div>)
                 }
             </div>

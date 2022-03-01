@@ -1,50 +1,45 @@
-import { createContext } from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import { createContext, useEffect, useState } from 'react';
 
 export const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
     const [cart, setCart] = useState([]);
 
-    const addToCart = (product, quantity) => {
-        if( isInCart (product.id) ){
-         sumarItemRepetido(product, quantity);
-        } else {
-        setCart([...cart, { ...product, quantity }]);
-        }
-    }
+    useEffect(() => {
+        console.log(cart);
+    }, [cart]);
 
-    /* evitar repetición de producto en el carrito */
+    //función que agrega items al carrito
+    const addToCart = (item, quantity) => {
+        isInCart(item.id)
+            ? sumarCantidad(item, quantity)
+            : setCart([...cart, { ...item, quantity }]);
+    };
+
+    //función que chequea si está en el carrito
     const isInCart = (id) => {
-        const validacion = cart.some((producto) => producto.id === id);
-        return validacion;
-    }
+        return cart.some((producto) => producto.id === id);
+    };
 
-    /* funcion para sumar un item que ya está en el carrito */
+    //función que agrega cantidad
+    const sumarCantidad = (item, quantity) => {
+        const newProducts = cart.map((prod) => {
+            if (prod.id === item.id) {
+                const newProduct = {
+                    ...prod,
+                    quantity: prod.quantity + quantity,
+                };
+                return newProduct;
+            } else {
+                return prod;
+            }
+        });
+        setCart(newProducts);
+    };
 
-    const sumarItemRepetido = (id, quantity) => {
-        const copia = [...cart];
-        copia.forEach((producto) =>  producto.id === id && (producto.quantity += quantity));
-    }
-
-    /* limpiar todos los items del carrito */
-
-    const clearItems = () => {
-        setCart([]);
-    }
-
-    /* borrar un item del carrito */
-
-    const removeItem = (id) => {
-        const itemFiltrados = cart.filter((producto) => producto.id !== id);
-        setCart(itemFiltrados);
-    }
-
-    
-    return(
+    return (
         <CartContext.Provider value={{ cart, addToCart }}>
             {children}
         </CartContext.Provider>
-    )
-}
+    );
+};

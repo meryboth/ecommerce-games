@@ -3,6 +3,7 @@ import NavBar from './components/NavBar/NavBar';
 import { useState } from 'react';
 import ItemListContainer from './components/Item/ItemListContainer';
 import Footer from './components/Footer/Footer';
+import Cart from './components/Cart/Cart';
 import {
   BrowserRouter,
   Routes,
@@ -28,6 +29,7 @@ export default function App() {
               <Route path="/freegames" element={<FreeGames />} />
               <Route path="/sale" element={<Sale />} />
               <Route path='/detail/:productId' element={<ItemDetailContainer />}/>
+              <Route path="/cart" element={<Cart />} />
             </Routes>
           <Footer/>
         </div>
