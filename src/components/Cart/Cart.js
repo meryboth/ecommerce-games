@@ -15,31 +15,31 @@ const Cart = () => {
         </h1>
       </div>
       <div className='lg:w-2/3 w-full mx-auto overflow-auto'>
-        <table className='table-auto w-full text-left whitespace-no-wrap'>
-          <thead>
-            <tr>
-              <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl'></th>
-              <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
-                Product
-              </th>
-              <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
-                Version
-              </th>
-              <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
-                Description
-              </th>
-              <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
-                Quantity
-              </th>
-              <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
-                Subtotal
-              </th>
-              <th className='w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-br text-center px-3'>
-                Remove
-              </th>
-            </tr>
-          </thead>
-          {sumQuantity() > 0 ? (
+        {sumQuantity() > 0 ? (
+          <table className='table-auto w-full text-left whitespace-no-wrap'>
+            <thead>
+              <tr>
+                <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl'></th>
+                <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
+                  Product
+                </th>
+                <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
+                  Version
+                </th>
+                <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
+                  Description
+                </th>
+                <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
+                  Quantity
+                </th>
+                <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
+                  Subtotal
+                </th>
+                <th className='w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-br text-center px-3'>
+                  Remove
+                </th>
+              </tr>
+            </thead>
             <tbody>
               {cart.map((prod) => {
                 return (
@@ -76,17 +76,17 @@ const Cart = () => {
                 );
               })}
             </tbody>
-          ) : (
-            <div className='flex flex-col text-center w-full bg-red-200'>
-              <p>No hay productos en el carrito!</p>
-              <Link to='/'>
-                <a class='text-green-700 inline-flex items-center md:mb-2 lg:mb-0'>
-                  Keep buying
-                </a>
-              </Link>
-            </div>
-          )}
-        </table>
+          </table>
+        ) : (
+          <div className='flex flex-col text-center w-full'>
+            <p>There are no items in your cart</p>
+            <Link to='/'>
+              <a class='text-green-700 inline-flex items-center md:mb-2 lg:mb-0'>
+                Go buy something!
+              </a>
+            </Link>
+          </div>
+        )}
       </div>
       <div className='flex pl-4 mt-4 lg:w-2/3 w-full mx-auto bg-gray-100 justify-between p-3'>
         <h6 className='px-9'>Total</h6>
