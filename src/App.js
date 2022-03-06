@@ -24,6 +24,10 @@ export default function App() {
             <Route path='/freegames' element={<FreeGames />} />
             <Route path='/sale' element={<Sale />} />
             <Route
+              path='/category/:categoryId'
+              element={<ItemListContainer />}
+            />
+            <Route
               path='/detail/:productId'
               element={<ItemDetailContainer />}
             />
