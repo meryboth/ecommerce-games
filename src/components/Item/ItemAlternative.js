@@ -22,7 +22,7 @@ function ItemAlternative(props) {
         <h1 className='text-lg font-bold text-white'>${props.price}</h1>
         <Link to={`/detail/${props.id}`}>
           <button className='px-2 py-1 text-xs font-semibold text-gray-900 uppercase transition-colors duration-200 transform bg-white rounded hover:bg-gray-200 focus:bg-gray-400 focus:outline-none'>
-            Product Detail
+            More details
           </button>
         </Link>
       </div>
