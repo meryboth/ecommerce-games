@@ -1,0 +1,12 @@
+  
+  .Option {
+    text-decoration: none;
+    margin: 0 50px;
+    color: black;
+  }
+
+  .ActiveOption {
+    text-decoration: none;
+    margin: 0 50px;
+    color: gray;
+  }
