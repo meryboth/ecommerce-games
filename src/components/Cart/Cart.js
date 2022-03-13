@@ -64,7 +64,6 @@ const Cart = () => {
             batch.commit().then(() => {
               clearCart();
               alert(
-                'success',
                 `La orden se genero exitosamente, su numero de orden es: ${id}`
               );
             });
