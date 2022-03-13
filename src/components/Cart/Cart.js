@@ -1,14 +1,113 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useRef } from 'react';
 import { CartContext } from '../../context/CartContext';
 import './Cart.css';
 import { Link } from 'react-router-dom';
+import OrderForm from '../OrderForm/OrderForm';
+import Togglable from './Togglable';
+import {
+  writeBatch,
+  getDoc,
+  doc,
+  addDoc,
+  collection,
+  Timestamp,
+} from 'firebase/firestore';
+import { firestoresDb } from '../../services/firebase/firebase';
 
 const Cart = () => {
   const { cart, subTotal, removeItem, total, sumQuantity, clearCart } =
     useContext(CartContext);
 
+  const [processingOrder, setProcessingOrder] = useState(false);
+  const [contact, setContact] = useState({
+    name: '',
+    phone: '',
+    address: '',
+    comment: '',
+  });
+  const contactFormRef = useRef();
+
+  const confirmOrder = () => {
+    if (
+      contact.phone !== '' &&
+      contact.address !== '' &&
+      contact.comment !== '' &&
+      contact.name !== ''
+    ) {
+      setProcessingOrder(true);
+
+      const objOrder = {
+        buyer: contact,
+        items: cart,
+        total: total(),
+        date: Timestamp.fromDate(new Date()),
+      };
+
+      const batch = writeBatch(firestoresDb);
+      const outOfStock = [];
+
+      objOrder.items.forEach((prod) => {
+        getDoc(doc(firestoresDb, 'products', prod.id)).then((response) => {
+          if (response.data().stock >= prod.quantity) {
+            batch.update(doc(firestoresDb, 'products', response.id), {
+              stock: response.data().stock - prod.quantity,
+            });
+          } else {
+            outOfStock.push({ id: response.id, ...response.data() });
+          }
+        });
+      });
+
+      if (outOfStock.length === 0) {
+        addDoc(collection(firestoresDb, 'orders'), objOrder)
+          .then(({ id }) => {
+            batch.commit().then(() => {
+              clearCart();
+              alert(
+                'success',
+                `La orden se genero exitosamente, su numero de orden es: ${id}`
+              );
+            });
+          })
+          .catch((error) => {
+            console.log('error', error);
+          })
+          .finally(() => {
+            setProcessingOrder(false);
+          });
+      } else {
+        outOfStock.forEach((prod) => {
+          alert('error', `El producto ${prod.name} no tiene stock disponible`);
+          removeItem(prod.id);
+        });
+      }
+    } else {
+      alert('Debe completar los datos de contacto para generar la orden');
+    }
+  };
+
+  /* termina la función de confirmar Orden */
+
+  if (processingOrder) {
+    return <h1>Se esta procesando su orden</h1>;
+  }
+
+  if (cart.length === 0) {
+    return (
+      <div className='flex flex-col text-center w-full items-center'>
+        <p>There are no items in your cart</p>
+        <Link
+          to='/'
+          className='text-green-700 inline-flex items-center md:mb-2 lg:mb-0 text-center '
+        >
+          Go buy something!
+        </Link>
+      </div>
+    );
+  }
+
   return (
-    <section className='text-gray-600 body-font'>
+    <section className='text-gray-600 body-font bg-slate-200'>
       <div className='flex flex-col text-center w-full mb-3'>
         <h1 className='sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900'>
           Cart
@@ -78,12 +177,13 @@ const Cart = () => {
             </tbody>
           </table>
         ) : (
-          <div className='flex flex-col text-center w-full'>
+          <div className='flex flex-col text-center w-full items-center'>
             <p>There are no items in your cart</p>
-            <Link to='/'>
-              <a class='text-green-700 inline-flex items-center md:mb-2 lg:mb-0'>
-                Go buy something!
-              </a>
+            <Link
+              to='/'
+              className='text-green-700 inline-flex items-center md:mb-2 lg:mb-0 text-center '
+            >
+              Go buy something!
             </Link>
           </div>
         )}
@@ -95,22 +195,12 @@ const Cart = () => {
           <h6 className='px-20 font-bold'>$ {total().toFixed(2)}</h6>
         </div>
       </div>
-      <div class='flex pl-4 lg:w-2/3 w-full mx-auto p-3 justify-between'>
-        <Link to='/'>
-          <a class='text-green-700 inline-flex items-center md:mb-2 lg:mb-0'>
-            Keep buying
-            <svg
-              fill='none'
-              stroke='currentColor'
-              stroke-linecap='round'
-              stroke-linejoin='round'
-              stroke-width='2'
-              class='w-4 h-4 ml-2'
-              viewBox='0 0 24 24'
-            >
-              <path d='M5 12h14M12 5l7 7-7 7'></path>
-            </svg>
-          </a>
+      <div className='flex pl-4 lg:w-2/3 w-full mx-auto p-3 justify-between'>
+        <Link
+          to='/'
+          className='text-green-700 inline-flex items-center md:mb-2 lg:mb-0'
+        >
+          Keep buying
         </Link>
         <div className='flex'>
           <button
@@ -119,11 +209,47 @@ const Cart = () => {
           >
             Clear Cart
           </button>
-          <button className='flex ml-auto text-white bg-green-800 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded'>
-            Buy
+          <button
+            onClick={confirmOrder}
+            className='flex ml-auto text-white bg-green-800 border-0 py-2 px-6 focus:outline-none hover:bg-green-600 rounded'
+          >
+            Confirm buy
           </button>
         </div>
       </div>
+      {contact.phone !== '' &&
+        contact.address !== '' &&
+        contact.comment !== '' &&
+        contact.name !== '' && (
+          <div className='flex flex-col justify-center items-center m-3'>
+            <h4>Nombre: {contact.name}</h4>
+            <h4>Telefono: {contact.phone}</h4>
+            <h4>Direccion: {contact.address}</h4>
+            <h4>Comentario: {contact.comment}</h4>
+            <button
+              onClick={() =>
+                setContact({ phone: '', address: '', comment: '' })
+              }
+              style={{ backgroundColor: '#db4025' }}
+              className='text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded m-3'
+            >
+              Borrar datos de contacto
+            </button>
+          </div>
+        )}
+      <Togglable
+        buttonLabelShow={
+          contact.phone !== '' &&
+          contact.address !== '' &&
+          contact.comment !== '' &&
+          contact.name !== ''
+            ? 'Edit Contact'
+            : 'Add Contact'
+        }
+        ref={contactFormRef}
+      >
+        <OrderForm toggleVisibility={contactFormRef} setContact={setContact} />
+      </Togglable>
     </section>
   );
 };
