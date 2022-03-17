@@ -34,7 +34,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
             <label className='LabelContact'>
               Name
               <input
-                className='w-full p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-green-700'
+                className='w-full p-2 bg-green-900 rounded-md  border border-green-700 focus:border-green-700'
                 type='text'
                 value={name}
                 onChange={({ target }) => setName(target.value)}
@@ -43,7 +43,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
             <label className='LabelContact'>
               Phone
               <input
-                className='w-full p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-green-700'
+                className='w-full p-2 bg-green-900 rounded-md  border border-green-700 focus:border-green-700'
                 type='text'
                 value={phone}
                 onChange={({ target }) => setPhone(target.value)}
@@ -52,7 +52,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
             <label className='LabelContact'>
               Address
               <input
-                className='w-full p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-green-700'
+                className='w-full p-2 bg-green-900 rounded-md  border border-green-700 focus:border-green-700'
                 type='text'
                 value={address}
                 onChange={({ target }) => setAddress(target.value)}
@@ -61,7 +61,7 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
             <label className='LabelContact'>
               Comment
               <input
-                className='w-full p-2 bg-gray-900 rounded-md  border border-gray-700 focus:border-green-700'
+                className='w-full p-2 bg-green-900 rounded-md  border border-green-700 focus:border-green-700'
                 type='text'
                 value={comment}
                 onChange={({ target }) => setComment(target.value)}
@@ -69,10 +69,10 @@ const ContactForm = ({ toggleVisibility, setContact }) => {
             </label>
             <div className='flex items-center my-3'>
               <button
-                className='w-1/3 p-2 bg-gray-50 rounded-full font-bold text-gray-900 border border-gray-700'
+                className='w-1/3 p-2 bg-green-900 rounded-full font-bold hover:bg-green-700 text-white'
                 type='submit'
               >
-                Confirmar
+                Confirm
               </button>
             </div>
           </form>

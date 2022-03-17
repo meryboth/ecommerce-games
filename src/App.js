@@ -9,33 +9,39 @@ import FreeGames from './pages/FreeGames';
 import Sale from './pages/Sale';
 import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
 import { CartContextProvider } from './context/CartContext';
+import { CartContext } from './context/CartContext';
+import { NotificationServicesProvider } from './services/notification/notificationServices';
 
 export default function App() {
   /* variable useState que va a guardar datos del carrito */
-  const [cart, setCart] = useState([]);
+  /*  const [cartData, setCartData] = useState([]);
+
+  const { cart } = useContext(CartContext); */
 
   return (
     <BrowserRouter className=''>
-      <CartContextProvider>
-        <div className='h-screen justify-between flex flex-col bg-slate-200'>
-          <NavBar />
-          <Routes>
-            <Route path='/' element={<ItemListContainer />} />
-            <Route path='/freegames' element={<FreeGames />} />
-            <Route path='/sale' element={<Sale />} />
-            <Route
-              path='/category/:categoryId'
-              element={<ItemListContainer />}
-            />
-            <Route
-              path='/detail/:productId'
-              element={<ItemDetailContainer />}
-            />
-            <Route path='/cart' element={<Cart />} />
-          </Routes>
-          <Footer />
-        </div>
-      </CartContextProvider>
+      <NotificationServicesProvider>
+        <CartContextProvider>
+          <div className='h-screen justify-between flex flex-col bg-slate-200'>
+            <NavBar />
+            <Routes>
+              <Route path='/' element={<ItemListContainer />} />
+              <Route path='/freegames' element={<FreeGames />} />
+              <Route path='/sale' element={<Sale />} />
+              <Route
+                path='/category/:categoryId'
+                element={<ItemListContainer />}
+              />
+              <Route
+                path='/detail/:productId'
+                element={<ItemDetailContainer />}
+              />
+              <Route path='/cart' element={<Cart />} />
+            </Routes>
+            <Footer />
+          </div>
+        </CartContextProvider>
+      </NotificationServicesProvider>
     </BrowserRouter>
   );
 }
