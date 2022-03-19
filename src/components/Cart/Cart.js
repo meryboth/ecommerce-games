@@ -3,7 +3,11 @@ import { CartContext } from '../../context/CartContext';
 import './Cart.css';
 import { Link } from 'react-router-dom';
 import OrderForm from '../OrderForm/OrderForm';
-import Togglable from './Togglable';
+import Togglable from '../Togglable/Togglable';
+import ProccesingOrder from '../ProccesingOrder/ProccesingOrder';
+import CheckoutHeader from '../CheckoutHeader/CheckoutHeader';
+import NoItemsInCart from '../NoItemsInCart/NoItemsInCart';
+import CheckoutTitle from '../CheckoutTitle/CheckoutTitle';
 import {
   writeBatch,
   getDoc,
@@ -98,73 +102,20 @@ const Cart = () => {
   /* termina la función de confirmar Orden */
 
   if (processingOrder) {
-    return (
-      <div className='w-full text-center'>
-        <h1>We are proccesing your order</h1>
-        <div className='flex justify-center items-center'>
-          <div
-            className='spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full'
-            role='status'
-          >
-            <span className='visually-hidden'>
-              <img
-                src='https://icongr.am/jam/chevron-circle-down-left.svg?size=29&color=1f570a'
-                alt=''
-              />
-            </span>
-          </div>
-        </div>
-      </div>
-    );
+    return <ProccesingOrder />;
   }
 
   if (cart.length === 0) {
-    return (
-      <div className='flex flex-col text-center w-full items-center'>
-        <p>There are no items in your cart</p>
-        <Link
-          to='/'
-          className='text-green-700 inline-flex items-center md:mb-2 lg:mb-0 text-center '
-        >
-          Go buy something! 🎮
-        </Link>
-      </div>
-    );
+    return <NoItemsInCart />;
   }
 
   return (
     <section className='text-gray-600 body-font bg-slate-200'>
-      <div className='flex flex-col text-center w-full mb-3'>
-        <h1 className='sm:text-4xl text-3xl font-medium title-font mb-2 text-gray-900'>
-          Cart
-        </h1>
-      </div>
+      <CheckoutTitle />
       <div className='lg:w-2/3 w-full mx-auto overflow-auto'>
         {sumQuantity() > 0 ? (
           <table className='table-auto w-full text-left whitespace-no-wrap'>
-            <thead>
-              <tr>
-                <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl'></th>
-                <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
-                  Product
-                </th>
-                <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
-                  Version
-                </th>
-                <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
-                  Description
-                </th>
-                <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
-                  Quantity
-                </th>
-                <th className='px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100'>
-                  Subtotal
-                </th>
-                <th className='w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-br text-center px-3'>
-                  Remove
-                </th>
-              </tr>
-            </thead>
+            <CheckoutHeader />
             <tbody>
               {cart.map((prod) => {
                 return (
@@ -203,15 +154,7 @@ const Cart = () => {
             </tbody>
           </table>
         ) : (
-          <div className='flex flex-col text-center w-full items-center'>
-            <p>There are no items in your cart</p>
-            <Link
-              to='/'
-              className='text-green-700 inline-flex items-center md:mb-2 lg:mb-0 text-center '
-            >
-              Go buy something!
-            </Link>
-          </div>
+          <NoItemsInCart />
         )}
       </div>
       <div className='flex pl-4 mt-4 lg:w-2/3 w-full mx-auto bg-gray-100 justify-between p-3'>

@@ -1,70 +1,77 @@
-# Getting Started with Create React App
+## E-commerce Bugs Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### Qué es?:
 
-## Available Scripts
+Bugs Game es una aplicación web desarrollada en React Js en el marco del curso de React Js en Coderhouse.
 
-In the project directory, you can run:
+### Estado del proyecto
 
-### `npm start`
+Actualmente el proyecto se encuentra terminado, pero no se descarta la posibilidad de continuar sumando features, tales como la implementación de una API de gestión de pagos.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Screen Shot(s)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+#### Home:
 
-### `npm test`
+<img src="https://i.ibb.co/94w5C7Q/screencapture-localhost-3000-2022-03-19-11-19-16.png" alt="screencapture-localhost-3000-2022-03-19-11-19-16" border="0">
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### Detalle de producto:
 
-### `npm run build`
+<img src="https://i.ibb.co/HqVdpLC/screencapture-localhost-3000-detail-1-FM6e1l-GRUDEuw-ZEPB9-M-2022-03-19-11-22-08.png" alt="screencapture-localhost-3000-detail-1-FM6e1l-GRUDEuw-ZEPB9-M-2022-03-19-11-22-08" border="0">
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### Checkout:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<img src="https://i.ibb.co/DWrjzMm/screencapture-localhost-3000-cart-2022-03-19-11-24-13.png" alt="screencapture-localhost-3000-cart-2022-03-19-11-24-13" border="0">
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Installation and Setup Instructions
 
-### `npm run eject`
+Clona este repositorio utilizando gitclone y copiando la url HTTPS. Necesitarás tener instalado `node` y `npm` de forma global en tu sistema operativo.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Instala npm en la carpeta root del proyecto, donde se encuenta el archivo package.json:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+`npm install`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Para inicializar el proyecto en el browser:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+`npm start`
 
-## Learn More
+- Para visitar la app:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+`localhost:3000`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Tecnologías y recursos implementados
 
-### Code Splitting
+- Se utilizó la libreria React Js de Javascript
+- Para los estilos y el diseño general se utilizó el framework de CSS Tailwind
+- Las imágenes y descripción de productos pertenecen a las compañias que cuentan con los derechos de cada uno de los títulos
+- Para el desarrollo de la base de datos se utilizó Firebase Firestore
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Tools:
 
-### Analyzing the Bundle Size
+<img align="left" alt="Visual Studio Code" width="40px" src="https://img.icons8.com/color/48/000000/visual-studio-code-2019.png"/>
+<img align="left" alt="Html5" width="40px" src="https://img.icons8.com/color/48/000000/html-5--v1.png"/>
+<img align="left" alt="CSS3" width="40px" src="https://img.icons8.com/color/48/000000/css3.png"/>
+<img align="left" alt="Javascript" width="40px" src="https://icongr.am/devicon/javascript-original.svg?size=39&color=b30000"/>
+<img align="left" alt="React Js" width="40px" src="https://icongr.am/devicon/react-original-wordmark.svg?size=40&color=currentColor"/>
+<img align="left" alt="Git" width="40px" src="https://icongr.am/devicon/git-original.svg?size=39&color=b30000">
+<img align="left" alt="Figma" width="40px" src="https://img.icons8.com/color/48/000000/figma--v1.png"/>
+<img align="left" alt="Babel" width="40px" src="https://icongr.am/devicon/babel-original.svg?size=60&color=currentColor"/>
+<img align="left" alt="Firebase" width="40px" src="https://icongr.am/simple/firebase.svg?size=61&color=currentColor&color=b30000
+"/>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+<br>
+<br>
 
-### Making a Progressive Web App
+## Flujo de funcionamiento:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+<!-- <img src="https://media.giphy.com/media/3GL67cHt39HXT6gbBv/giphy.gif"/> -->
 
-### Advanced Configuration
+<img src="https://i.ibb.co/s2T4bTv/Bug-Games-Google-Chrome-19-March-2022.gif" alt="Bug-Games-Google-Chrome-19-March-2022" border="0">
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## 💬 Contacta conmigo
 
-### Deployment
+Si te gustó el proyecto y querés contactarte conmigo para sugerirme ideas o mejoras podes encontrarme en:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+[![Twitter Badge](https://img.shields.io/badge/-Twitter-1DA1F2?style=plastic&logo=Twitter&logoColor=white&link=https://twitter.com/meryboth)](https://twitter.com/meryboth)
+[![Linkedin Badge](https://img.shields.io/badge/-Linkedin-0077B5?style=plastic&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/marilyn-botheatoz/)](https://www.linkedin.com/in/marilyn-botheatoz/)
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<br>

@@ -1,23 +1,17 @@
 import './App.css';
 import NavBar from './components/NavBar/NavBar';
-import { useState } from 'react';
-import ItemListContainer from './components/Item/ItemListContainer';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
 import Footer from './components/Footer/Footer';
 import Cart from './components/Cart/Cart';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import FreeGames from './pages/FreeGames';
 import Sale from './pages/Sale';
-import ItemDetailContainer from './components/ItemDetail/ItemDetailContainer';
+import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
 import { CartContextProvider } from './context/CartContext';
 import { CartContext } from './context/CartContext';
 import { NotificationServicesProvider } from './services/notification/notificationServices';
 
 export default function App() {
-  /* variable useState que va a guardar datos del carrito */
-  /*  const [cartData, setCartData] = useState([]);
-
-  const { cart } = useContext(CartContext); */
-
   return (
     <BrowserRouter className=''>
       <NotificationServicesProvider>
