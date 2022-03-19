@@ -55,17 +55,13 @@ Clona este repositorio utilizando gitclone y copiando la url HTTPS. Necesitarás
 <img align="left" alt="Git" width="40px" src="https://icongr.am/devicon/git-original.svg?size=39&color=b30000">
 <img align="left" alt="Figma" width="40px" src="https://img.icons8.com/color/48/000000/figma--v1.png"/>
 <img align="left" alt="Babel" width="40px" src="https://icongr.am/devicon/babel-original.svg?size=60&color=currentColor"/>
-<img align="left" alt="Firebase" width="40px" src="https://icongr.am/simple/firebase.svg?size=60&color=currentColor&colored=false
-"/>
 
 <br>
 <br>
 
 ## Flujo de funcionamiento:
 
-<!-- <img src="https://media.giphy.com/media/3GL67cHt39HXT6gbBv/giphy.gif"/> -->
-
-<img src="https://i.ibb.co/s2T4bTv/Bug-Games-Google-Chrome-19-March-2022.gif" alt="Bug-Games-Google-Chrome-19-March-2022" border="0">
+<img src="https://media.giphy.com/media/3GL67cHt39HXT6gbBv/giphy.gif"/>
 
 ## 💬 Contacta conmigo
 
